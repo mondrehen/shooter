@@ -56,7 +56,7 @@ script = ExtResource("1_yvqdr")
 
 [node name="Soil" type="Sprite2D" parent="Ground"]
 texture_repeat = 2
-position = Vector2(488, 460)
+position = Vector2(197, 407)
 texture = ExtResource("2_6o7ko")
 region_enabled = true
 region_rect = Rect2(-6348.92, -2537.17, 16000, 10000)
@@ -104,20 +104,18 @@ position = Vector2(-2054, 2431)
 rotation = -0.523598
 
 [node name="Gate" parent="." instance=ExtResource("3_636sq")]
-position = Vector2(498, -521)
+position = Vector2(1680, -589)
 
 [node name="Player" parent="." instance=ExtResource("3_3rror")]
-position = Vector2(532, 512)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
-[node name="projectiles" type="Node2D" parent="."]
-scale = Vector2(6.03717, -2.64391)
-
 [node name="Steamvent" parent="." instance=ExtResource("14_4m321")]
 position = Vector2(187, 821)
+
+[node name="projectiles" type="Node2D" parent="."]
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="grenade" from="Player" to="." method="_on_player_grenade"]

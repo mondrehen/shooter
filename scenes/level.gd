@@ -9,6 +9,7 @@ func _ready() -> void:
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	pass
 
@@ -19,10 +20,10 @@ func _on_gate_player_entered_gate() -> void:
 
 
 func _on_player_laser(pos,direction) -> void:
-	print("laser emited")
+	print("laser signal received")
 	var laser = laser_scene.instantiate() as Area2D
 	laser.position = pos 
-	laser.rotation_degrees = rad_to_deg(direction.angle()) + 85
+	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
 	$projectiles.add_child(laser)
 	pass # Replace with function body.

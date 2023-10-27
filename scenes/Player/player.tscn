@@ -27,13 +27,13 @@ wait_time = 2.0
 [node name="laser_start_positions" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="laser_start_positions"]
-position = Vector2(185, 11)
+position = Vector2(136, 14)
 
 [node name="Marker2D2" type="Marker2D" parent="laser_start_positions"]
-position = Vector2(181, 1)
+position = Vector2(128, 2)
 
 [node name="Marker2D3" type="Marker2D" parent="laser_start_positions"]
-position = Vector2(181, 22)
+position = Vector2(127, 24)
 
 [node name="grenade_start_positions" type="Node2D" parent="."]
 
