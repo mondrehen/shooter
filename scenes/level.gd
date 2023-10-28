@@ -2,6 +2,7 @@ extends Node2D
 
 var laser_scene:PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene = preload("res://scenes/projectiles/grenade.tscn")
+var gunfire_scene = preload("res://scenes/gunfire.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +16,10 @@ func _process(delta: float) -> void:
 
 
 func _on_gate_player_entered_gate() -> void:
-	print("player entered the gate!")
+	var tween = create_tween()
+	tween.tween_property($Player,"speed",0,2)
+	
+	print("player entered the gate area!")
 	pass # Replace with function body.
 
 
@@ -36,4 +40,16 @@ func _on_player_grenade(pos,player_direction) -> void:
 	grenade.linear_velocity = player_direction * grenade.speed
 	grenade.position = pos
 	$projectiles.add_child(grenade)
+	pass # Replace with function body.
+
+
+func _on_house_player_entered_house() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D,"zoom",Vector2(1,1),1)
+	pass # Replace with function body.
+
+
+func _on_house_player_exited_house() -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property($Player/Camera2D,"zoom",Vector2(0.6,0.6),2)
 	pass # Replace with function body.

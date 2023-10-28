@@ -4,6 +4,8 @@ var can_laser:bool = true
 var can_grenade:bool = true
 signal laser(pos,player_direction)
 signal grenade(pos,player_direction)
+@export var max_speed:int = 500
+var speed:int = max_speed
 
 func _ready() -> void:
 	pass
@@ -12,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#input
 	var direction  = Input.get_vector("left","right","up","down")
-	velocity = direction * 500
+	velocity = direction * speed
 	move_and_slide()
 	
 	#rotate
@@ -21,6 +23,7 @@ func _process(delta: float) -> void:
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	#laser 
 	if Input.is_action_pressed("primary action") and can_laser:
+		$gunfire.emitting = true
 		var laser_markers = $laser_start_positions.get_children()
 		var selected_laser = laser_markers[randi() % laser_markers.size()]
 		print(selected_laser,position,player_direction)
