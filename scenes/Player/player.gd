@@ -6,6 +6,7 @@ signal laser(pos,player_direction)
 signal grenade(pos,player_direction)
 @export var max_speed:int = 500
 var speed:int = max_speed
+signal laser_timeisup()
 
 func _ready() -> void:
 	pass
@@ -28,8 +29,10 @@ func _process(delta: float) -> void:
 		var selected_laser = laser_markers[randi() % laser_markers.size()]
 		print(selected_laser,position,player_direction)
 		laser.emit(selected_laser.global_position,player_direction)
+		
 		can_laser = false
 		$laser_reload_timer.start(-1)
+		$laser_vanishing_timer.start()
 		
 	
 	#grenade
@@ -47,5 +50,10 @@ func _on_timer_timeout() -> void:
 
 
 func _on_timer_2_timeout() -> void:
-	pass # Replace with function body.
 	can_grenade = true
+	pass # Replace with function body.
+
+
+func _on_laser_vanishing_timer_timeout() -> void:
+	laser_timeisup.emit()
+	pass # Replace with function body.

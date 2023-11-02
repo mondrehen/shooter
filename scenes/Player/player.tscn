@@ -53,5 +53,10 @@ position = Vector2(143, 13)
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_roccm")
 
+[node name="laser_vanishing_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="laser_reload_timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="grenade_reload_timer" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="laser_vanishing_timer" to="." method="_on_laser_vanishing_timer_timeout"]

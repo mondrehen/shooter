@@ -3,6 +3,7 @@ extends Node2D
 var laser_scene:PackedScene = preload("res://scenes/projectiles/laser.tscn")
 var grenade_scene = preload("res://scenes/projectiles/grenade.tscn")
 var gunfire_scene = preload("res://scenes/gunfire.tscn")
+var laser
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _on_gate_player_entered_gate() -> void:
 	print("player entered the gate area!")
 	pass # Replace with function body.
 
-
+#laser signal from player.gd
 func _on_player_laser(pos,direction) -> void:
 	print("laser signal received")
 	var laser = laser_scene.instantiate() as Area2D
@@ -33,7 +34,7 @@ func _on_player_laser(pos,direction) -> void:
 	pass # Replace with function body.
 
 
-
+#grenade signal from player.gd
 func _on_player_grenade(pos,player_direction) -> void:
 	print("grenade from level")
 	var grenade = grenade_scene.instantiate() as RigidBody2D
@@ -52,4 +53,9 @@ func _on_house_player_entered_house() -> void:
 func _on_house_player_exited_house() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($Player/Camera2D,"zoom",Vector2(0.6,0.6),2)
+	pass # Replace with function body.
+
+
+func _on_player_laser_timeisup() -> void:
+	$projectiles.laser.queue_free()
 	pass # Replace with function body.
