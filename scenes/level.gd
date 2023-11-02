@@ -56,6 +56,3 @@ func _on_house_player_exited_house() -> void:
 	pass # Replace with function body.
 
 
-func _on_player_laser_timeisup() -> void:
-	$projectiles.laser.queue_free()
-	pass # Replace with function body.

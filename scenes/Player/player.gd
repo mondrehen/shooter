@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 		
 		can_laser = false
 		$laser_reload_timer.start(-1)
-		$laser_vanishing_timer.start()
 		
 	
 	#grenade
@@ -54,6 +53,4 @@ func _on_timer_2_timeout() -> void:
 	pass # Replace with function body.
 
 
-func _on_laser_vanishing_timer_timeout() -> void:
-	laser_timeisup.emit()
-	pass # Replace with function body.
+
