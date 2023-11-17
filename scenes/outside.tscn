@@ -80,10 +80,10 @@ position = Vector2(187, 821)
 [node name="Gate" parent="." index="1" instance=ExtResource("14_d521v")]
 position = Vector2(1301, -1133)
 
-[node name="toilet" parent="." index="5" instance=ExtResource("14_r3wh8")]
+[node name="toilet" parent="." index="4" instance=ExtResource("14_r3wh8")]
 position = Vector2(1499, 472)
 
-[node name="box" parent="." index="6" instance=ExtResource("15_tqf6g")]
+[node name="box" parent="." index="5" instance=ExtResource("15_tqf6g")]
 position = Vector2(1910, 276)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
