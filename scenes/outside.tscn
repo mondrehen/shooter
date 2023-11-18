@@ -80,6 +80,10 @@ position = Vector2(187, 821)
 [node name="Gate" parent="." index="1" instance=ExtResource("14_d521v")]
 position = Vector2(1301, -1133)
 
+[node name="Player" parent="." index="3"]
+position = Vector2(1339, -124)
+metadata/_edit_group_ = true
+
 [node name="toilet" parent="." index="4" instance=ExtResource("14_r3wh8")]
 position = Vector2(1499, 472)
 
