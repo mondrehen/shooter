@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b0636d54efqlw"]
+[gd_scene load_steps=15 format=3 uid="uid://b0636d54efqlw"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_jpqyp"]
 [ext_resource type="Script" path="res://scenes/outside.gd" id="2_5r2bk"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://caoai6r6wptx4" path="res://scenes/objects/light_fan_animation.tscn" id="12_gx42m"]
 [ext_resource type="PackedScene" uid="uid://dqxwhyilf1x3p" path="res://scenes/objects/steamvent.tscn" id="13_ffcwk"]
 [ext_resource type="PackedScene" uid="uid://bylw7snbimplc" path="res://scenes/objects/gate.tscn" id="14_d521v"]
-[ext_resource type="PackedScene" uid="uid://n8w2vv8v3hcf" path="res://scenes/toilet.tscn" id="14_r3wh8"]
-[ext_resource type="PackedScene" uid="uid://bodm2im77ddgq" path="res://scenes/box.tscn" id="15_tqf6g"]
 
 [sub_resource type="TileSet" id="TileSet_he8at"]
 tile_size = Vector2i(390, 390)
@@ -77,17 +75,11 @@ position = Vector2(-1839, 1622)
 [node name="Steamvent" parent="Ground" index="10" instance=ExtResource("13_ffcwk")]
 position = Vector2(187, 821)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("14_d521v")]
+[node name="Gate" parent="Ground" index="11" instance=ExtResource("14_d521v")]
 position = Vector2(1301, -1133)
 
-[node name="Player" parent="." index="3"]
-position = Vector2(1339, -124)
+[node name="Player" parent="." index="2"]
+position = Vector2(1339, 108)
 metadata/_edit_group_ = true
 
-[node name="toilet" parent="." index="4" instance=ExtResource("14_r3wh8")]
-position = Vector2(1499, 472)
-
-[node name="box" parent="." index="5" instance=ExtResource("15_tqf6g")]
-position = Vector2(1910, 276)
-
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]

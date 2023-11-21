@@ -17,11 +17,11 @@ texture = ExtResource("1_2ivv5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-1438, -780, -1431, 585, -1235, 766, -376, 770, -376, 574, 497, 574, 486, 781, 1395, 766, 1552, 595, 1566, -780)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Entering" type="Area2D" parent="."]
 collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entering"]
 position = Vector2(56, 728)
 shape = SubResource("RectangleShape2D_jy5e0")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Entering" to="." method="_on_entering_body_entered"]
