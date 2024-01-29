@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://uox2n0b7og8r"]
+[gd_scene load_steps=15 format=3 uid="uid://uox2n0b7og8r"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_lw51q"]
 [ext_resource type="TileSet" uid="uid://3kavpya5c72e" path="res://scenes/houses/house.tres" id="2_snk8a"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://un42x3sakxns" path="res://graphics/lights/overlays/infrastructure.png" id="8_wisq8"]
 [ext_resource type="Texture2D" uid="uid://cd7ttpx6a5xdl" path="res://graphics/lights/overlays/lattice.png" id="9_tofpv"]
 [ext_resource type="Texture2D" uid="uid://dcldmbfpoy6yl" path="res://graphics/lights/overlays/hole.png" id="10_yoo3y"]
+[ext_resource type="PackedScene" uid="uid://cx6o7vlu7arao" path="res://scenes/item.tscn" id="13_kd8oc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sx1s6"]
 size = Vector2(510, 1542)
@@ -148,5 +149,8 @@ metadata/_edit_lock_ = true
 position = Vector2(306, -1937)
 shape = SubResource("RectangleShape2D_sx1s6")
 
-[connection signal="body_entered" from="ExitGateArea" to="." method="_on_area_2d_body_entered"]
+[node name="Item" parent="." index="7" instance=ExtResource("13_kd8oc")]
+position = Vector2(2519, -1663)
+
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_area_2d_body_entered"]

@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 [autoload]
 
 Globals="*res://globals/globals.gd"
+LevelTransition="*res://globals/level_transition.tscn"
 
 [display]
 

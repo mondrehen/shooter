@@ -6,5 +6,5 @@ func _on_gate_signal_entering() -> void:
 	var tween = create_tween()
 	tween.tween_property($Player,"speed",0,2)
 	print("player entered the gate area!")
-	get_tree().change_scene_to_file("res://scenes/inside.tscn")
+	LevelTransition.change_scene("res://scenes/inside.tscn")
 	pass # Replace with function body.
