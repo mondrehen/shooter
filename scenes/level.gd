@@ -53,3 +53,9 @@ func _on_house_player_exited_house() -> void:
 	pass # Replace with function body.
 
 
+
+
+func _on_player_update_stats():
+	$UI.update_laser_label()
+	$UI.update_grenade_label()
+	pass # Replace with function body.
