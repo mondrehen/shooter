@@ -1,7 +1,7 @@
 extends Area2D
 var rotation_speed:int = 4
 var available_options = ['laser','laser','laser','grenade','health']
-var type = 'health'#available_options[randi()%len(available_options)]
+var type = available_options[randi()%len(available_options)]
 
 
 func _ready():
@@ -18,9 +18,12 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	body.add_item(type)
 	if type == 'health':
 		Globals.health += 10
+	if type == 'laser':
+		Globals.laser_amount += 5
+	if type == 'grenade':
+		Globals.grenade_amount += 1
 	queue_free()
 	pass # Replace with function body.
  

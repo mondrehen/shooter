@@ -13,15 +13,17 @@ var red:Color = Color(0.9,0,0,1)
 
 func _ready() -> void:
 	Globals.connect("health_change",update_health_text)
+	Globals.connect("laser_amount_change",update_laser_label)
+	Globals.connect("grenade_amount_change",update_grenade_label)
 	update_grenade_label()
 	update_laser_label()
-	health_bar.value = Globals.health
+	update_health_text()
 #	laser_label.text = str(Globals.laser_amount)
 #	grenade_label.text = str(Globals.grenade_amount)
 
 func update_health_text():
+	health_bar.value = Globals.health
 	
-
 func update_laser_label():
 	laser_label.text = str(Globals.laser_amount)
 	update_color(Globals.laser_amount,laser_label,laser_icon)
