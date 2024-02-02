@@ -11,6 +11,8 @@ script = ExtResource("1_yvqdr")
 
 [node name="projectiles" type="Node2D" parent="."]
 
+[node name="Items" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_3rror")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

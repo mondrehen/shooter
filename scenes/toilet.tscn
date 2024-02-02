@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://n8w2vv8v3hcf"]
+[gd_scene load_steps=6 format=3 uid="uid://n8w2vv8v3hcf"]
 
 [ext_resource type="PackedScene" uid="uid://wd2b2x6valic" path="res://scenes/item_container.tscn" id="1_opfcn"]
 [ext_resource type="Texture2D" uid="uid://bgi47tpxlh3jy" path="res://graphics/objects/toilet.png" id="2_dfmnu"]
 [ext_resource type="Script" path="res://scenes/toilet.gd" id="2_rygvq"]
+[ext_resource type="Texture2D" uid="uid://cwcqx0ixute4" path="res://graphics/objects/lid.png" id="4_ry25j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4j78g"]
 radius = 102.122
@@ -10,8 +11,11 @@ radius = 102.122
 [node name="toilet" instance=ExtResource("1_opfcn")]
 script = ExtResource("2_rygvq")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_dfmnu")
 
-[node name="CollisionShape2D2" parent="." index="1"]
+[node name="LidSprite" parent="." index="1"]
+texture = ExtResource("4_ry25j")
+
+[node name="CollisionShape2D2" parent="." index="2"]
 shape = SubResource("CircleShape2D_4j78g")

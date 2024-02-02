@@ -52,15 +52,6 @@ layer_2/tile_data = PackedInt32Array(-589822, 196610, 1, -524286, 196610, 1, -19
 [node name="Steamvent" parent="Ground" index="2" instance=ExtResource("6_144tm")]
 position = Vector2(8393, -4857)
 
-[node name="Player" parent="." index="2"]
-position = Vector2(1124, -1848)
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
-texture = ExtResource("4_xga37")
-texture_scale = 3.0
-
 [node name="Light" type="Node2D" parent="." index="3"]
 metadata/_edit_lock_ = true
 
@@ -148,6 +139,15 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(306, -1937)
 shape = SubResource("RectangleShape2D_sx1s6")
+
+[node name="Player" parent="." index="6"]
+position = Vector2(1124, -1848)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
+texture = ExtResource("4_xga37")
+texture_scale = 3.0
 
 [node name="Item" parent="." index="7" instance=ExtResource("13_kd8oc")]
 position = Vector2(2519, -1663)
