@@ -152,5 +152,5 @@ texture_scale = 3.0
 [node name="Item" parent="." index="7" instance=ExtResource("13_kd8oc")]
 position = Vector2(2519, -1663)
 
-[connection signal="body_entered" from="ExitGateArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
+[connection signal="body_entered" from="ExitGateArea" to="." method="_on_area_2d_body_entered"]

@@ -12,10 +12,14 @@ func _ready():
 		$Sprite2D.modulate = Color(0.8,0.2,0.1)
 	if type == 'health':
 		$Sprite2D.modulate = Color(0.1,0.8,0.1)
+		
+		
 	# tween
 	var target_pos = position + direction * distance
-	var movement_tween =create_tween()
+	var movement_tween = create_tween()
+	movement_tween.set_parallel(true)
 	movement_tween.tween_property(self,"position",target_pos,0.5)
+	movement_tween.tween_property(self,"scale",Vector2(1,1),0.3).from(Vector2(0,0))
 	
 	
 		
