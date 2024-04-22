@@ -8,6 +8,8 @@ signal grenade(pos,player_direction)
 var speed:int = max_speed
 signal laser_timeisup()
 
+func hit():
+	print('player was hit')
 
 func _ready() -> void:
 	pass

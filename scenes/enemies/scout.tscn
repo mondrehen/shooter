@@ -35,8 +35,14 @@ position = Vector2(112, -28)
 [node name="Marker2D2" type="Marker2D" parent="LaserSpawnPositions"]
 position = Vector2(122, 12)
 
-[node name="LaserCoolDown" type="Timer" parent="."]
+[node name="Node" type="Node" parent="."]
+
+[node name="LaserCoolDown" type="Timer" parent="Node"]
+
+[node name="ScoutDamagedCooldown" type="Timer" parent="Node"]
+wait_time = 0.5
 
 [connection signal="body_entered" from="Attackarea" to="." method="_on_attackarea_body_entered"]
 [connection signal="body_exited" from="Attackarea" to="." method="_on_attackarea_body_exited"]
-[connection signal="timeout" from="LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
+[connection signal="timeout" from="Node/LaserCoolDown" to="." method="_on_laser_cool_down_timeout"]
+[connection signal="timeout" from="Node/ScoutDamagedCooldown" to="." method="_on_scout_damaged_cooldown_timeout"]
