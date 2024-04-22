@@ -10,7 +10,7 @@ radius = 62.0725
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_roccm"]
 polygon = PackedVector2Array(11, -65, 34, -52, 53, -29, 61, -1, 54, 31, 37, 52, 14, 60, -11, 61, -35, 53, -54, 30, -62, -1, -58, -27, -42, -47, -22, -60, -3, -63)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Entity"]]
 collision_mask = 31
 script = ExtResource("1_l0jr3")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0636d54efqlw"]
+[gd_scene load_steps=19 format=3 uid="uid://b0636d54efqlw"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_jpqyp"]
 [ext_resource type="Script" path="res://scenes/outside.gd" id="2_5r2bk"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cx6o7vlu7arao" path="res://scenes/item.tscn" id="14_i3upc"]
 [ext_resource type="PackedScene" uid="uid://bodm2im77ddgq" path="res://scenes/box.tscn" id="15_b6nex"]
 [ext_resource type="PackedScene" uid="uid://n8w2vv8v3hcf" path="res://scenes/toilet.tscn" id="16_017f5"]
+[ext_resource type="PackedScene" uid="uid://bpxo31sjoyisy" path="res://scenes/enemies/scout.tscn" id="17_ex1wj"]
 
 [sub_resource type="TileSet" id="TileSet_he8at"]
 tile_size = Vector2i(390, 390)
@@ -94,11 +95,14 @@ position = Vector2(434, 489)
 position = Vector2(716, 247)
 rotation = 1.5708
 
-[node name="Player" parent="." index="7"]
-position = Vector2(1339, 108)
-metadata/_edit_group_ = true
-
 [node name="Item" parent="." index="8" instance=ExtResource("14_i3upc")]
 position = Vector2(1131, -142)
+
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("17_ex1wj")]
+position = Vector2(2145, 226)
+
+[node name="Player" parent="." index="11"]
+position = Vector2(1339, 108)
+metadata/_edit_group_ = true
 
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]
