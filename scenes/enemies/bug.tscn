@@ -98,9 +98,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("21_o8uq3")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 5.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -132,7 +132,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 30.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r40db"]
@@ -144,15 +144,14 @@ radius = 615.183
 [sub_resource type="CircleShape2D" id="CircleShape2D_qg4q5"]
 radius = 29.1548
 
-[node name="Bug" type="CharacterBody2D"]
+[node name="Bug" type="CharacterBody2D" groups=["Bugs"]]
 script = ExtResource("1_74lrh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_wpaeb")
 animation = &"attack"
-frame = 18
-frame_progress = 0.296368
 
 [node name="NoticeArea" type="Area2D" parent="."]
 
@@ -165,10 +164,20 @@ shape = SubResource("CircleShape2D_r40db")
 shape = SubResource("CircleShape2D_rl8me")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(-21, -1)
 shape = SubResource("CircleShape2D_qg4q5")
+
+[node name="LaserSpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserSpawnPositions"]
+position = Vector2(65, 0)
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="BugAttackTimer" type="Timer" parent="Timer"]
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="timeout" from="Timer/BugAttackTimer" to="." method="_on_bug_attack_timer_timeout"]

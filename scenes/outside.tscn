@@ -109,4 +109,7 @@ metadata/_edit_group_ = true
 [node name="Bug" parent="." index="13" instance=ExtResource("18_uuvnv")]
 position = Vector2(1624, -152)
 
+[node name="Bug2" parent="." index="14" instance=ExtResource("18_uuvnv")]
+position = Vector2(-6086, 158)
+
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]

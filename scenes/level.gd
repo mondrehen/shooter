@@ -15,6 +15,14 @@ func _ready() -> void:
 	for scout in get_tree().get_nodes_in_group('Scouts'):
 		scout.connect('laser',_on_scout_laser)
 		
+	for bug in get_tree().get_nodes_in_group('Bugs'):
+		bug.connect('bug_laser_attack',_on_bug_laser)
+
+func _on_bug_laser(pos,direction):
+	print("bug is shooting")
+	create_laser(pos,direction)
+	pass
+		
 func _on_scout_laser(pos,direction):
 	print('scout is shooting.')
 	create_laser(pos,direction)
