@@ -25,6 +25,7 @@ func hit():
 	if can_damaged:
 		health -= 10
 		print('scout was hit')
+		$Sprite2D.material.set_shader_parameter("progress",1)
 		$Node/ScoutDamagedCooldown.start()
 		can_damaged = false
 	if health <= 0:
@@ -48,4 +49,5 @@ func _on_laser_cool_down_timeout():
 
 func _on_scout_damaged_cooldown_timeout() -> void:
 	can_damaged = true
+	$Sprite2D.material.set_shader_parameter("progress",0)
 	pass # Replace with function body.

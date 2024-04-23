@@ -10,6 +10,8 @@ signal laser_timeisup()
 
 func hit():
 	print('player was hit')
+	Globals.health -= 10
+	print(Globals.health)
 
 func _ready() -> void:
 	pass
