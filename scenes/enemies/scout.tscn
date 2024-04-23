@@ -27,17 +27,14 @@ rotation = 1.5708
 texture = ExtResource("1_wa184")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_rd86i")
 
 [node name="Attackarea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attackarea"]
 shape = SubResource("CircleShape2D_jr7ex")
 
 [node name="LaserSpawnPositions" type="Node2D" parent="."]
-visible = false
 
 [node name="Marker2D" type="Marker2D" parent="LaserSpawnPositions"]
 position = Vector2(112, -28)
