@@ -5,14 +5,18 @@ var speed:int = 350
 signal bug_laser_attack(pos,direction)
 var bug_attack_cooldown:bool = true
 @onready var bug_animation:AnimatedSprite2D = $AnimatedSprite2D
+var close_range:int = 500
+
 
 #Noticing Moving Attacking
 func _process(delta):
-	if player_nearby and position.distance_to(Globals.player_pos) > 500:
+	var in_range = Globals.player_pos.distance_to(global_position) < close_range
+	if player_nearby and not in_range:
 		Notice_player()
-		var direction:Vector2 = (Globals.player_pos - position).normalized()
+		var direction:Vector2 = (Globals.player_pos - global_position).normalized()
 		position = position + direction * speed * delta
 		bug_animation.play("walk")
+		print('player_nearby=',player_nearby,'not_near_enough=',in_range)
 	if bug_fireable:
 		Notice_player()
 		Attack_player()

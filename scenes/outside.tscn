@@ -100,16 +100,13 @@ rotation = 1.5708
 position = Vector2(1131, -142)
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("17_ex1wj")]
-position = Vector2(2145, 226)
+position = Vector2(2858, 514)
 
 [node name="Player" parent="." index="11"]
 position = Vector2(1339, 108)
 metadata/_edit_group_ = true
 
-[node name="Bug" parent="." index="13" instance=ExtResource("18_uuvnv")]
-position = Vector2(1624, -152)
-
-[node name="Bug2" parent="." index="14" instance=ExtResource("18_uuvnv")]
-position = Vector2(-6086, 158)
+[node name="Bug2" parent="." index="13" instance=ExtResource("18_uuvnv")]
+position = Vector2(-1998, -922)
 
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]
