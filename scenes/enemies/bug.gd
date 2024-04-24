@@ -30,10 +30,12 @@ func hit():
 	if vulnerable:
 		health -=10
 		$AnimatedSprite2D.material.set_shader_parameter('progress',1)
+		$Node2D/HitParticles.emitting = true
 		vulnerable = false
 		$Timer/VulnerableTimer.start()
 		print("bug was hit")
 	if health <= 0:
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 	pass
 

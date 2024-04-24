@@ -102,10 +102,11 @@ position = Vector2(1131, -142)
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("17_ex1wj")]
 position = Vector2(2858, 514)
 
+[node name="Bug" parent="Enemies" index="1" instance=ExtResource("18_uuvnv")]
+position = Vector2(-415, 268)
+
 [node name="Player" parent="." index="11"]
 position = Vector2(1339, 108)
 metadata/_edit_group_ = true
-
-[node name="Bug" parent="." index="13" instance=ExtResource("18_uuvnv")]
 
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]
