@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dak4id02ox145"]
+[gd_scene load_steps=6 format=3 uid="uid://dak4id02ox145"]
 
 [ext_resource type="Texture2D" uid="uid://nc18hpmhw5wx" path="res://graphics/enemies/drone.png" id="1_8gf3b"]
 [ext_resource type="Script" path="res://scenes/enemies/drone_1.gd" id="1_8iroc"]
@@ -6,6 +6,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ai8qt"]
 radius = 71.0
 height = 144.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vxtyc"]
+radius = 612.184
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lkay"]
+radius = 219.276
 
 [node name="Drone_1" type="CharacterBody2D"]
 collision_layer = 2
@@ -19,3 +25,20 @@ texture = ExtResource("1_8gf3b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ai8qt")
+
+[node name="ActiveArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActiveArea"]
+shape = SubResource("CircleShape2D_vxtyc")
+
+[node name="ExplodeArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodeArea"]
+shape = SubResource("CircleShape2D_7lkay")
+
+[connection signal="body_entered" from="ActiveArea" to="." method="_on_active_area_body_entered"]
+[connection signal="body_exited" from="ActiveArea" to="." method="_on_active_area_body_exited"]
+[connection signal="body_entered" from="ExplodeArea" to="." method="_on_explode_area_body_entered"]
+[connection signal="body_exited" from="ExplodeArea" to="." method="_on_explode_area_body_exited"]

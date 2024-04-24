@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0636d54efqlw"]
+[gd_scene load_steps=21 format=3 uid="uid://b0636d54efqlw"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_jpqyp"]
 [ext_resource type="Script" path="res://scenes/outside.gd" id="2_5r2bk"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://n8w2vv8v3hcf" path="res://scenes/toilet.tscn" id="16_017f5"]
 [ext_resource type="PackedScene" uid="uid://bpxo31sjoyisy" path="res://scenes/enemies/scout.tscn" id="17_ex1wj"]
 [ext_resource type="PackedScene" uid="uid://cud57jljvlii0" path="res://scenes/enemies/bug.tscn" id="18_uuvnv"]
+[ext_resource type="PackedScene" uid="uid://dak4id02ox145" path="res://scenes/enemies/drone_1.tscn" id="19_cheib"]
 
 [sub_resource type="TileSet" id="TileSet_he8at"]
 tile_size = Vector2i(390, 390)
@@ -104,6 +105,9 @@ position = Vector2(2858, 514)
 
 [node name="Bug" parent="Enemies" index="1" instance=ExtResource("18_uuvnv")]
 position = Vector2(-415, 268)
+
+[node name="Drone_1" parent="Enemies" index="2" instance=ExtResource("19_cheib")]
+position = Vector2(654, -165)
 
 [node name="Player" parent="." index="11"]
 position = Vector2(1339, 108)

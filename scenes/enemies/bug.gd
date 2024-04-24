@@ -16,7 +16,7 @@ func _process(_delta):
 #	var in_range = Globals.player_pos.distance_to(global_position) < close_range
 	var direction:Vector2 = (Globals.player_pos - global_position).normalized()
 	velocity = speed * direction
-	print('player_nearby=',player_nearby,' bug fireable=',bug_fireable)
+#	print('player_nearby=',player_nearby,' bug fireable=',bug_fireable)
 	if player_nearby:
 		Notice_player()
 		move_and_slide()
