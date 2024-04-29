@@ -7,6 +7,7 @@ var speedup_time:float = 0
 var explosion
 
 func _ready() -> void:
+	$PointLight2D.energy = 0
 	pass
 	
 func _process(delta: float) -> void:
@@ -21,8 +22,7 @@ func _process(delta: float) -> void:
 		speedup_time = 0
 	
 func hit():
-	$AnimationPlayer.play
-	print("ready to explode")
+
 	pass
 
 
@@ -37,3 +37,15 @@ func _on_active_area_body_exited(body):
 	pass # Replace with function body.
 
 
+
+
+func _on_readyto_boom_body_entered(body):
+	$AnimationPlayer.play("blinking")
+	$PointLight2D.energy = 0
+	active = false
+	await get_tree().create_timer(1.2).timeout
+	$AnimationPlayer.play("explosion")
+	print("ready to explode")
+	await $AnimationPlayer.animation_finished
+	queue_free()
+	pass # Replace with function body.
