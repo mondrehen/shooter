@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0636d54efqlw"]
+[gd_scene load_steps=23 format=3 uid="uid://b0636d54efqlw"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_jpqyp"]
 [ext_resource type="Script" path="res://scenes/outside.gd" id="2_5r2bk"]
@@ -19,9 +19,16 @@
 [ext_resource type="PackedScene" uid="uid://bpxo31sjoyisy" path="res://scenes/enemies/scout.tscn" id="17_ex1wj"]
 [ext_resource type="PackedScene" uid="uid://cud57jljvlii0" path="res://scenes/enemies/bug.tscn" id="18_uuvnv"]
 [ext_resource type="PackedScene" uid="uid://dak4id02ox145" path="res://scenes/enemies/drone_1.tscn" id="19_cheib"]
+[ext_resource type="PackedScene" uid="uid://crfhsh5xfw6n1" path="res://scenes/enemies/car.tscn" id="20_5puij"]
 
 [sub_resource type="TileSet" id="TileSet_he8at"]
 tile_size = Vector2i(390, 390)
+
+[sub_resource type="Curve2D" id="Curve2D_xw8nf"]
+_data = {
+"points": PackedVector2Array(-601.775, -156.801, 601.775, 156.801, -729, 453, -8.4757, -1004.37, 8.4757, 1004.37, 603, 2936, 427.149, -347.058, -427.149, 347.058, 89, 4506, 747.51, 80.0904, -747.51, -80.0904, -1509, 4867, 469.864, 528.597, -469.864, -528.597, -3669, 4220, -147.078, 644.881, 147.078, -644.881, -4363, 1985, -729.734, 260.215, 729.734, -260.215, -2717, 405, 0, 0, 0, 0, -729, 453)
+}
+point_count = 8
 
 [node name="Outside" instance=ExtResource("1_jpqyp")]
 script = ExtResource("2_5r2bk")
@@ -84,20 +91,20 @@ position = Vector2(187, 821)
 [node name="Gate" parent="Ground" index="11" instance=ExtResource("14_d521v")]
 position = Vector2(1301, -1133)
 
-[node name="box" parent="." index="2" instance=ExtResource("15_b6nex")]
+[node name="box" parent="Ground" index="12" instance=ExtResource("15_b6nex")]
 position = Vector2(1088, 583)
 
-[node name="box2" parent="." index="3" instance=ExtResource("15_b6nex")]
+[node name="box2" parent="Ground" index="13" instance=ExtResource("15_b6nex")]
 position = Vector2(1754, 473)
 
-[node name="box3" parent="." index="4" instance=ExtResource("15_b6nex")]
+[node name="box3" parent="Ground" index="14" instance=ExtResource("15_b6nex")]
 position = Vector2(434, 489)
 
-[node name="toilet" parent="." index="5" instance=ExtResource("16_017f5")]
+[node name="toilet" parent="Ground" index="15" instance=ExtResource("16_017f5")]
 position = Vector2(716, 247)
 rotation = 1.5708
 
-[node name="Item" parent="." index="8" instance=ExtResource("14_i3upc")]
+[node name="Item" parent="." index="4" instance=ExtResource("14_i3upc")]
 position = Vector2(1131, -142)
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("17_ex1wj")]
@@ -109,8 +116,15 @@ position = Vector2(-415, 268)
 [node name="Drone_1" parent="Enemies" index="2" instance=ExtResource("19_cheib")]
 position = Vector2(654, -165)
 
-[node name="Player" parent="." index="11"]
+[node name="Player" parent="." index="7"]
 position = Vector2(1339, 108)
 metadata/_edit_group_ = true
+
+[node name="CarPath" type="Path2D" parent="." index="9"]
+curve = SubResource("Curve2D_xw8nf")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("20_5puij")]
+position = Vector2(-729, 453)
+rotation = 0.254896
 
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]
