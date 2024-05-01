@@ -5,10 +5,11 @@ var speed:int = 100
 var acceleration:int = 80
 var speedup_time:float = 0
 var explosion_range:int = 400
-var speeed_multiplier:int = 1
+var speed_multiplier:int = 1
 var vulnerable:bool = true
 var health:int = 30
 var explosion_active:bool = false
+var ondeathstoprotate:bool = false
 
 
 func _ready() -> void:
@@ -18,9 +19,10 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	direction = (Globals.player_pos - global_position).normalized()
-	velocity = direction * (speed + acceleration * speedup_time) * speeed_multiplier
+	velocity = direction * (speed + acceleration * speedup_time) * speed_multiplier
 	if active:
-		look_at(Globals.player_pos)
+		if not ondeathstoprotate:
+			look_at(Globals.player_pos)
 		speedup_time = speedup_time + delta
 		var collision = move_and_collide(velocity * delta)
 		if collision:
@@ -38,7 +40,8 @@ func _process(delta: float) -> void:
 				target.hit()
 
 func stop_movement():
-	speeed_multiplier = 0
+	speed_multiplier = 0
+	ondeathstoprotate = true
 	pass
 	
 func explode():

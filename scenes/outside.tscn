@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b0636d54efqlw"]
+[gd_scene load_steps=27 format=3 uid="uid://b0636d54efqlw"]
 
 [ext_resource type="PackedScene" uid="uid://toq754qm8k4e" path="res://scenes/level.tscn" id="1_jpqyp"]
 [ext_resource type="Script" path="res://scenes/outside.gd" id="2_5r2bk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b154ahxi7v8cl" path="res://graphics/decals/moss/moss_2.png" id="5_37hxk"]
 [ext_resource type="Texture2D" uid="uid://dnpxwrxd0dkl6" path="res://graphics/decals/moss/moss_3.png" id="6_cjxbb"]
 [ext_resource type="Texture2D" uid="uid://c5n2d3r7rfgf1" path="res://graphics/decals/moss/moss_5.png" id="7_g7k0k"]
+[ext_resource type="Texture2D" uid="uid://dkp1nswhtkrp4" path="res://graphics/tilesets/outside_walls.png" id="9_2ua5i"]
 [ext_resource type="Texture2D" uid="uid://b1hltm86nawux" path="res://graphics/decals/moss/moss_4.png" id="10_y2nhm"]
 [ext_resource type="PackedScene" uid="uid://cjnuehqi1tb36" path="res://scenes/houses/house.tscn" id="11_3lblu"]
 [ext_resource type="PackedScene" uid="uid://caoai6r6wptx4" path="res://scenes/objects/light_fan_animation.tscn" id="12_gx42m"]
@@ -18,17 +19,68 @@
 [ext_resource type="PackedScene" uid="uid://n8w2vv8v3hcf" path="res://scenes/toilet.tscn" id="16_017f5"]
 [ext_resource type="PackedScene" uid="uid://bpxo31sjoyisy" path="res://scenes/enemies/scout.tscn" id="17_ex1wj"]
 [ext_resource type="PackedScene" uid="uid://cud57jljvlii0" path="res://scenes/enemies/bug.tscn" id="18_uuvnv"]
+[ext_resource type="PackedScene" uid="uid://dn0y5uii4qs5h" path="res://scenes/enemies/hunter.tscn" id="19_8xgk2"]
 [ext_resource type="PackedScene" uid="uid://dak4id02ox145" path="res://scenes/enemies/drone_1.tscn" id="19_cheib"]
 [ext_resource type="PackedScene" uid="uid://crfhsh5xfw6n1" path="res://scenes/enemies/car.tscn" id="20_5puij"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i5n8l"]
+resource_name = "Walls"
+texture = ExtResource("9_2ua5i")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-67, -64, 195, -58, 195, 60, -67, 62)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -56, 195, -58, 195, 60, -195, 60)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -66, 195, -60, 195, 60, 55, 58, 57, 195, 63, 195, -59, 195)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(63, -66, -195, -60, -195, 60, -55, 58, -57, 195, -63, 195, 59, 195)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(58, -195, 58, 195, -64, 195, -62, -195)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, 66, 195, 60, 195, -60, 55, -58, 57, -195, 63, -195, -59, -195)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(63, 66, -195, 60, -195, -60, -55, -58, -57, -195, -63, -195, 59, -195)
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_he8at"]
 tile_size = Vector2i(390, 390)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 11
+sources/0 = SubResource("TileSetAtlasSource_i5n8l")
 
 [sub_resource type="Curve2D" id="Curve2D_xw8nf"]
 _data = {
 "points": PackedVector2Array(-601.775, -156.801, 601.775, 156.801, -729, 453, -8.4757, -1004.37, 8.4757, 1004.37, 603, 2936, 427.149, -347.058, -427.149, 347.058, 89, 4506, 747.51, 80.0904, -747.51, -80.0904, -1509, 4867, 469.864, 528.597, -469.864, -528.597, -3669, 4220, -147.078, 644.881, 147.078, -644.881, -4363, 1985, -729.734, 260.215, 729.734, -260.215, -2717, 405, 0, 0, 0, 0, -729, 453)
 }
 point_count = 8
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_15x4i"]
+vertices = PackedVector2Array(3793, 264, 3768, -926, 4443, -888, 4359, 1252, 3415, 1288, 3383, 364, 3632, 282, 2848, 143, 2702, -321, 2830, -378, 2999, 155, 2843, -1022, 3195, -1358, 3646, -1038, 3275, 360, 2988, 554, 2838, 319, 3242, 592, 3154, 654)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 9, 11, 12, 13, 6, 5, 14), PackedInt32Array(15, 16, 10, 14, 17, 18)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3768, -926, 3793, 264, 3632, 282, 3646, -1038, 3195, -1358, 2843, -1022, 2830, -378, 2702, -321, 2848, 143, 2999, 155, 2838, 319, 2988, 554, 3154, 654, 3242, 592, 3275, 360, 3383, 364, 3415, 1288, 4359, 1252, 4443, -888)])
 
 [node name="Outside" instance=ExtResource("1_jpqyp")]
 script = ExtResource("2_5r2bk")
@@ -72,7 +124,7 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(196611, 0, 0, 196612, 65536, 0, 196613, 65536, 0, 196614, 65536, 0, 196615, 131072, 0, -4, 65536, 0, -5, 65536, 0, -6, 65536, 0, -7, 65536, 0)
+layer_1/tile_data = PackedInt32Array(196611, 0, 0, 196612, 65536, 0, 196613, 65536, 0, 196614, 65536, 0, 196615, 131072, 0, -4, 65536, 0, -5, 65536, 0, -6, 65536, 0, -7, 65536, 0, -65527, 0, 2, 9, 0, 2, 65545, 0, 2, -131061, 0, 2, -65525, 0, 2, 11, 0, 2, 65547, 0, 2, 131083, 0, 2, 65544, 0, 2, 131080, 0, 2, 196617, 65536, 0, 196618, 65536, 0, -196598, 65536, 0, -196599, 65536, 1, -196597, 131072, 1, -131063, 0, 2, 196619, 131072, 2, 196616, 65536, 2)
 
 [node name="Moss4" type="Sprite2D" parent="Ground" index="7"]
 position = Vector2(4726, 800)
@@ -108,16 +160,19 @@ rotation = 1.5708
 position = Vector2(1131, -142)
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("17_ex1wj")]
-position = Vector2(2858, 514)
+position = Vector2(1330, 1488)
 
 [node name="Bug" parent="Enemies" index="1" instance=ExtResource("18_uuvnv")]
 position = Vector2(-415, 268)
 
-[node name="Drone_1" parent="Enemies" index="2" instance=ExtResource("19_cheib")]
+[node name="Hunter" parent="Enemies" index="2" instance=ExtResource("19_8xgk2")]
+position = Vector2(3371, -480)
+
+[node name="Drone_1" parent="Enemies" index="3" instance=ExtResource("19_cheib")]
 position = Vector2(654, -165)
 
 [node name="Player" parent="." index="7"]
-position = Vector2(1339, 108)
+position = Vector2(3141, -59)
 metadata/_edit_group_ = true
 
 [node name="CarPath" type="Path2D" parent="." index="9"]
@@ -126,5 +181,9 @@ curve = SubResource("Curve2D_xw8nf")
 [node name="Car" parent="CarPath" index="0" instance=ExtResource("20_5puij")]
 position = Vector2(-729, 453)
 rotation = 0.254896
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." index="10"]
+navigation_polygon = SubResource("NavigationPolygon_15x4i")
+metadata/_edit_lock_ = true
 
 [connection signal="signal_entering" from="Ground/Gate" to="." method="_on_gate_signal_entering"]
